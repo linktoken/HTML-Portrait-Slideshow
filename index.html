@@ -33,33 +33,41 @@
     </style>
     <script>
         let images = [
-            "./images/image1.jpg",				// image directory and name
+            "./images/image1.jpg",
             "./images/image2.jpg",
             "./images/image3.jpg",
             "./images/image4.jpg",
             "./images/image5.jpg"
         ];
         let index = 0;
+        let slideInterval;
 
         function changeImage() {
             let slideshow = document.getElementById("slideshow");
+            // Fade out
             slideshow.style.opacity = 0;
             
+            // Wait for fade out, then change image and fade in
             setTimeout(() => {
+                index = (index + 1) % images.length;
                 slideshow.src = images[index];
                 slideshow.style.opacity = 1;
-                index = (index + 1) % images.length;
             }, 1000);
-            
-            setTimeout(changeImage, 5 * 60 * 1000); // 5 minutes per image
         }
 
         window.onload = function() {
             let slideshow = document.getElementById("slideshow");
+            // Set initial image
             slideshow.src = images[index];
             slideshow.style.opacity = 1;
-            index++;
-            setTimeout(changeImage, 5 * 60 * 1000);
+            
+            // Start the slideshow interval
+            slideInterval = setInterval(changeImage, 5 * 60 * 1000); // Change image every 5 minutes
+			
+			
+
+            // For testing purposes, you can use a shorter interval:
+            // slideInterval = setInterval(changeImage, 3000); // Change image every 3 seconds
         };
     </script>
 </head>
