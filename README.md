@@ -59,7 +59,7 @@ setTimeout(changeImage, 5 * 60 * 1000); // 5 minutes per image
 
 ## Author
 
-Your Name - [@linktoken](https://github.com/linktoken)
+[@linktoken](https://github.com/linktoken)
 
 ## Acknowledgments
 
